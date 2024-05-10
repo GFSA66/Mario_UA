@@ -302,17 +302,28 @@ maps_list = [menu_map,rules,menu,map_list,list_map,list_list,map_map,tsil_tsil,t
 ######################################     Створюємо батьківський класс:     ######################################
 
 class Block():# класс блок
+# ---------------------------
+#  Все що приймає класс:
+# ---------------------------
+#         Може повторюватися далі у коді
+
     def __init__(self,filename,x,y,width=TILE,height = TILE,color = (0,0,0),counter = 0,health = 100,power = 0,name = None) ->None:
-        self.image = pygame.image.load(filename)
-        self.rect = pygame.Rect(x,y,width,height)
-        self.x = x
-        self.health = health
-        self.color = color
-        self.counter = counter
-        self.power = power
-        self.name = name
+        self.image = pygame.image.load(filename) # підключається картинка
+        self.rect = pygame.Rect(x,y,width,height) # створюється квадрат (кордината х, кордината у, ширина, висота)
+        self.x = x # окремо кордината х
+        self.health = health # здоров'я
+        self.color = color # колір
+        self.counter = counter # лічильник для анімацій
+        self.power = power # сила наносимого урона (спочатку 0)
+        self.name = name # унікальне ім'я блоку
+
     def update(self):# рухається на мапа, а Маріо
         self.rect.x = self.x + step 
+
+# -------------
+#  Анімація:
+# -------------
+
     def animation(self): # анімація блоку
         global luckyblockpic_index
         if self.name == "luckyblock": # якщо ім'я блоку "luckyblock", то запускається анімація
@@ -326,16 +337,29 @@ class Block():# класс блок
             if self.counter >=40:
                 self.counter = 0
 
-    def damage(self,value): # отримання урона
+# ---------------------
+#   Отримання урону:
+# ---------------------
+
+    def damage(self,value):
         global game_runing
         self.health -=value
         if self.health <= 0:
             self.health = 0
             game_runing = False
-    def hit(self,enemy): # нанесенння урона
+
+# ----------------------
+#   Нанесення урону:
+# ----------------------
+
+    def hit(self,enemy):
         enemy.damage(self.power)
-        
-    def draw(self):  # промальовка
+
+# -----------------
+#   Промальовка:
+# -----------------
+
+    def draw(self):
         if self.name == "luckyblock":
             self.animation()
             self.image = luckyblockpic[luckyblockpic_index]
@@ -347,12 +371,13 @@ class Mario(Block):
     def __init__(self,filename,x,y,width=TILE,height = TILE,color = (0,0,0),health = 4,points=0,counter = 0,look_left = False) ->None:
         super().__init__(filename,x=x,y=y,width=width,height=height,color= None,counter = 0,health = 100)
         self.image = pygame.image.load(filename)
-        self.delay = 0
+        self.delay = 0 # для стрибку
         self.rect.y -=64
         self.health = health
-        self.points = points
+        self.points = points # очки
         self.counter = counter
-        self.look_left = look_left
+        self.look_left = look_left # перевірка повернення Маріо в ліву сторону
+
 # -----------------------
 #   Дотик з блоками:
 # -----------------------
@@ -582,8 +607,8 @@ class Enemy(Mario):# класс Ворог
         self.rect.y -=64
         self.power = power
         self.height = height
-        self.turn_side = turn_side
-        self.turn_side = False
+        self.turn_side = turn_side # змінення сторони в яку дивиться об'єкт
+        self.turn_side = False # змінення сторони в яку дивиться об'єкт
 
 # -----------------------------------------------
 #   Дотик ворога з блоками та Маріо:
@@ -621,16 +646,16 @@ class Enemy(Mario):# класс Ворог
 # --------------------------
     def update(self):
         collide_events_enemy = self.collide_events_enemy()
-        if collide_events_enemy['left_mario'] or collide_events_enemy['right_mario']: # нанесение урона Марио
+        if collide_events_enemy['left_mario'] or collide_events_enemy['right_mario']: # нанесення урона Маріо
             self.hit(mario)
-        if collide_events_enemy['top_mario']: # уничтожение врага
+        if collide_events_enemy['top_mario']: # знищення врага
             enemies.remove(self)
             mario.points+=1
             if mario.health != 4:
                 mario.health +=1
-        if not collide_events_enemy["bottom"]: # падать
+        if not collide_events_enemy["bottom"]: # падати
             self.rect.y +=8
-        if collide_events_enemy['left'] or collide_events_enemy['right']: # ходить
+        if collide_events_enemy['left'] or collide_events_enemy['right']: # ходити
             self.dx = -self.dx
             self.turn_side = not self.turn_side
         self.rect.x += self.dx
@@ -664,6 +689,7 @@ class Enemy(Mario):# класс Ворог
 # ----------------------------
 #     Промальовка ворога:
 # ----------------------------
+
     def draw(self):
         global mashroompic_index
         if not self.turn_side:
@@ -679,24 +705,38 @@ class Area():
         self.rect = pygame.Rect(x, y, width, height)
         self.fill_color = color
         self.x = x
+# --------------------
+#  Зазначення коліру:
+# --------------------
     def set_color(self, new_color):
         self.fill_color = new_color
+# -------------------
+# Заливання коліром:
+# -------------------
     def fill(self):
         pygame.draw.rect(window,self.fill_color,self.rect)
+# -----------------------------------------
+#   Перевірка зіткнення з точкою на мапі:
+# -----------------------------------------
     def collidepoint(self,x,y):
         return self.rect.collidepoint(x,y)
+# -------------------------------------
+#   Перевірка зіткнення з об'єктом:
+# -------------------------------------
     def collide(self, obj):
         return self.rect.colliderect(obj.rect)
     
 ######################################     Прямокутник з текстом:     ######################################
 class Lable(Area):
     def set_text(self, text, size):
-        font1 = pygame.font.Font(None,size)
+        font1 = pygame.font.Font(None,size) # шрифт, його розмір
         if map_index == 11 or map_index == 13 or map_index == 14:
             self.text = font1.render(text,True,(60,243,28))
         else:
            self.text = font1.render(text,True,(70,70,70))
-       
+# -------------------------------------
+#   Промальовка квадрату з текстом:
+# -------------------------------------
     def draw(self, shift_x = 0, shift_y = 0):
        self.fill()
        window.blit(self.text,(self.rect.x + shift_x, self.rect.y + shift_y))
@@ -718,6 +758,9 @@ class Picture(Area):
         enemy.damage(self.power)
     def draw(self):
         window.blit(self.image, (self.rect.x,self.rect.y))
+# ------------------------
+#  Промальовка картинки:
+# ------------------------
     def update(self):
         self.draw()
         self.rect.x = self.x + step 
