@@ -18,9 +18,11 @@ clock = pygame.time.Clock()
 
 window.fill(BACK)
 # Списки спрайтів для анімацій
+
 mariopic = [pygame.image.load("mario32.png"),pygame.image.load("mario180.png"),pygame.image.load("mario_jump.png"),pygame.image.load("mario_jump180.png"),pygame.image.load("images for animation/mario_stay_1.png"),pygame.image.load("images for animation/mario_stay_2.png"),pygame.image.load("images for animation/mario_stay_3.png"),pygame.image.load("images for animation/mario_stay_4.png"),pygame.image.load("images for animation/mario_fall_1.png"),pygame.image.load("images for animation/mario_fall_2.png"),pygame.image.load("images for animation/mario_run_1.png"),pygame.image.load("images for animation/mario_run_2.png"),pygame.image.load("images for animation/mario_run_3.png"),pygame.image.load("images for animation/mario_run_4.png"),pygame.image.load("images for animation/mario_run_left_1.png"),pygame.image.load("images for animation/mario_run_left_2.png"),pygame.image.load("images for animation/mario_run_left_3.png"),pygame.image.load("images for animation/mario_run_left_4.png")] # список с картинками
 mashroompic = [pygame.image.load("mashroom_animation/mashroom32.png"),pygame.image.load("mashroom_animation/mashroom32_jump.png"),pygame.image.load("mashroom_animation/mashroom32_left.png"),pygame.image.load("mashroom_animation/mashroom32_left_jump.png")]
 luckyblockpic = [pygame.image.load("luckyblock_animation/luckyblock.png"),pygame.image.load("luckyblock_animation/luckyblock_2.png")]
+
 ######################################          Створюємо мапи:          ######################################
 map_list = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
