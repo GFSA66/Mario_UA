@@ -1065,6 +1065,7 @@ def music():
 #   (списки, змінні, об'єкти классів, словник)
 # --------------------------------------------------------
 
+# Списки для додавання об'єктів на мапу:
 menu_blocks = list()
 blocks = list()
 backs = list()
@@ -1072,6 +1073,7 @@ luckyblocks = list()
 enemies = list()    
 lvls = list()    
 money = list()
+# Список контролерів
 joysticks = list()
 
 Joystick_add = False
@@ -1079,7 +1081,6 @@ Joystick_add = False
 mariopic_index = 0
 mashroompic_index = 0
 luckyblockpic_index = 0
-
 # Таймер:
 timer = 1
 time = 0
@@ -1087,34 +1088,24 @@ time1 = 0
 time_water = 1
 timew = 30
 timew1 = 5
-
 # Монети:
 coins = 0
-
 # Рахувати для вихіду з гри
 count_till_the_end = 15
-
 # Запам'ятовування останньої мапи
 re_game = 1
-
 # Перехід на мапу під номером змінної:
 map_index = 0
-
 # Кількість смертей:
 death_index = 0
-
 # Перехід на паузу(меню):
 menum_react = True
-
 # Змінна для запуску гри:
 game_runing = True
-
 # Змінна задля руху мапи:
 step = 0
-
 # Перелік монет:
 coin_count = 0
-
 # Задні фони
 background=pygame.transform.scale(pygame.image.load("mario_forest.jpg"),SIZE)
 settings_background=pygame.transform.scale(pygame.image.load("games-settings-wired.webp"),SIZE)
@@ -1147,10 +1138,10 @@ joystick_control.set_text("Керування на джойстику", 30)
 collides = {-1: "left", 1: "right"}
 
 # Додаємо елементи меню до певного списку:
+menu_blocks.append(mario_title)
 menu_blocks.append(play_game)
 menu_blocks.append(exit_game)
 menu_blocks.append(setings)
-menu_blocks.append(mario_title)
 
 ######################################     Запускаємо функції:     ######################################
 music()
@@ -1225,6 +1216,7 @@ while game_runing:
                 menum_react = False
                 maps(maps_list[map_index])
             
+        # Зміна мапи налаштування:
             if map_index == 12:
                 if joystick_control.collidepoint(x,y) and not menum:
                     mario.points +=1
@@ -1247,7 +1239,7 @@ while game_runing:
                     menum_react = False
                     maps(maps_list[map_index])
 
-        # підключення джойстика
+    # Підключення джойстика:
         try:
             if event.type == pygame.JOYDEVICEADDED:
                 joy = pygame.joystick.Joystick(event.device_index)
@@ -1260,7 +1252,7 @@ while game_runing:
         if event.type == pygame.QUIT:
             game_runing = False
 
-    # пауза
+    # Пауза:
     if map_index == 0:
         menum = True
     else:
@@ -1537,8 +1529,9 @@ while game_runing:
 
 # Зміна керування персонажем в налаштуваннях ❌
 # Перезапуск рівня з меню паузи ✅
-# Збереження прогресу ✅ (при переході на новий рівень ви збереігаетесь та після смерті ви не попадаете на 1-й рівень)       --->
-# Бустери персонажу. Усилюючі предмети (Реалізувати додаткові предмети, які допоможуть подолати рівень або набрати побільше балів.) ✅ (Монетки які дають + к очкам без яких не можна пройти рівень)
+# Збереження прогресу ✅ (при переході на новий рівень ви збереігаетесь та після смерті ви не попадаете на 1-й рівень)
+# Бустери персонажу. Усилюючі предмети (Реалізувати додаткові предмети, які допоможуть подолати рівень або набрати побільше балів.) ✅ 
+#(Монетки які дають + к очкам без яких не можна пройти рівень)
 # Наявність автоматично запрограмованих ворогів (ботів) ✅
 # Анімація головного героя ✅
 # Анімація інших елементів гри ✅ (Анімація ворогів)
