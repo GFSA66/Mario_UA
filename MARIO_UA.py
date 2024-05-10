@@ -1013,15 +1013,15 @@ def maps(couch):
 
                         ab_g_1 = Lable(500,150,1,1,color = (BACK))
                         ab_g_1.set_text('''3 типи керування:
-                (стрілочки, WASD та контроллер)''', 40)
+                (стрілочки, WASD та контролер)''', 40)
                         blocks.append(ab_g_1)
 
                         ab_g_2 = Lable(500,225,1,1,color = (BACK))
-                        ab_g_2.set_text('''Після запуску гри на вас чикатиме туторіал,''', 40)
+                        ab_g_2.set_text('''Після запуску гри на вас чекатиме туторіал,''', 40)
                         blocks.append(ab_g_2)
 
                         ab_g_3 = Lable(500,250,1,1,color = (BACK))
-                        ab_g_3.set_text("де ви дізнаетесь про основні механіки", 40)
+                        ab_g_3.set_text("де ви дізнаєтесь про основні механіки", 40)
                         blocks.append(ab_g_3)
 
                         ab_g_4 = Lable(500,325,1,1,color = (BACK))
@@ -1029,7 +1029,7 @@ def maps(couch):
                         blocks.append(ab_g_4)
 
                         ab_g_5 = Lable(500,400,1,1,color = (BACK))
-                        ab_g_5.set_text("якщо плануете грати на контройлері,", 40)
+                        ab_g_5.set_text("якщо плануете грати на контролері,", 40)
                         blocks.append(ab_g_5)
 
                         ab_g_6 = Lable(500,425,1,1,color = (BACK))
@@ -1128,7 +1128,7 @@ exit_game = Picture("exit_button.png",676,330,74,46)
 setings = Picture("setings_button.png",676,376,74,46)
 mario_title=Picture("mario_title.png",550,100,800,375)
 about_game = Lable(500,200,400,25,color = (BACK))
-about_game.set_text("Свідомості про гру", 30)
+about_game.set_text("Відомості про гру", 30)
 pc_control = Lable(500,300,400,25,color = (BACK))
 pc_control.set_text("Керування на ПК", 30)
 joystick_control = Lable(500,400,400,25,color = (BACK))
