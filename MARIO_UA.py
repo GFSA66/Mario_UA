@@ -922,7 +922,7 @@ def maps(couch):
                         space = Picture("space.png",TILE*j,TILE*i)
                         blocks.append(space)
                 
-                if couch == setings_map:
+                if couch == setings_map: # керування на джойстику
 
                     if el == 8:
                         r3 = Lable(500,250,1,1,color = (BACK))
@@ -957,7 +957,7 @@ def maps(couch):
                         playstation.set_text("для інших також може підійти", 30)
                         blocks.append(playstation)
                 
-                if couch == choose_setings_map:
+                if couch == choose_setings_map: # вибір куди перейти у налаштуваннях
                     if el == 8:
                         blocks.append(about_game)
                     elif el == 9:
@@ -965,7 +965,7 @@ def maps(couch):
                     elif el == 10:
                         blocks.append(joystick_control)
 
-                if couch == pc_control_map:
+                if couch == pc_control_map: # керування на комп'ютері
                     if el == 8:
                         ab_g_0 = Lable(500,100,1,1,color = (BACK))
                         ab_g_0.set_text("Управління на ПК:", 50)
@@ -1005,7 +1005,7 @@ def maps(couch):
                 продовжити гру''', 30)
                         blocks.append(ab_g_7)
 
-                if couch == about_game_map:
+                if couch == about_game_map: # про гру
                     if el == 8:
                         ab_g_0 = Lable(500,100,1,1,color = (BACK))
                         ab_g_0.set_text("Основні відомості про гру:", 50)
@@ -1036,7 +1036,7 @@ def maps(couch):
                         ab_g_6.set_text("спочатку підключайте його", 40)
                         blocks.append(ab_g_6)
                         
-                if couch == menu:
+                if couch == menu: # Меню
                     if el == 9:
                         exit = Lable(-50,400,1,1,color = (BACK))
                         exit.set_text("НАВЧАННЯ",50)
@@ -1075,24 +1075,47 @@ money = list()
 joysticks = list()
 
 Joystick_add = False
+# Перелік спрайтів для промальовки:
 mariopic_index = 0
 mashroompic_index = 0
 luckyblockpic_index = 0
+
+# Таймер:
 timer = 1
 time = 0
 time1 = 0
 time_water = 1
 timew = 30
 timew1 = 5
+
+# Монети:
 coins = 0
+
+# Рахувати для вихіду з гри
 count_till_the_end = 15
+
+# Запам'ятовування останньої мапи
 re_game = 1
+
+# Перехід на мапу під номером змінної:
 map_index = 0
+
+# Кількість смертей:
 death_index = 0
+
+# Перехід на паузу(меню):
 menum_react = True
+
+# Змінна для запуску гри:
 game_runing = True
+
+# Змінна задля руху мапи:
 step = 0
+
+# Перелік монет:
 coin_count = 0
+
+# Задні фони
 background=pygame.transform.scale(pygame.image.load("mario_forest.jpg"),SIZE)
 settings_background=pygame.transform.scale(pygame.image.load("games-settings-wired.webp"),SIZE)
 background_for_settings=pygame.transform.scale(pygame.image.load("background_for_settings.jpg"),SIZE)
@@ -1100,6 +1123,7 @@ background_for_pc_control=pygame.transform.scale(pygame.image.load("background_f
 background_about_the_game=pygame.transform.scale(pygame.image.load("background_about_the_game.jpg"),SIZE)
 pause_background=pygame.transform.scale(pygame.image.load("pause_background.jpg"),SIZE)
 
+# Об'єкти різних классів
 point = Lable(1300,75,1,1,(12,87,90))
 point.set_text("Очки: 0",40)
 timel = Lable(500,75,1,1,(12,87,90))
@@ -1119,9 +1143,10 @@ pc_control.set_text("Керування на ПК", 30)
 joystick_control = Lable(500,400,400,25,color = (BACK))
 joystick_control.set_text("Керування на джойстику", 30)
 
+# Словник перевірки руху в одну із сторін:
 collides = {-1: "left", 1: "right"}
 
-# додаємо елементи меню до певного списку
+# Додаємо елементи меню до певного списку:
 menu_blocks.append(play_game)
 menu_blocks.append(exit_game)
 menu_blocks.append(setings)
@@ -1132,8 +1157,10 @@ music()
 maps(maps_list[map_index])
 ######################################     Запускаємо ігровий цикл:     ######################################
 while game_runing:
-    
-    # заливвання фону
+
+# ---------------------
+#   Заливвання фону:
+# ---------------------
     window.fill(BACK)
     if map_index != 0 and map_index != 8 and map_index != 9 and map_index != 7 and map_index != 10 and map_index != 11 and map_index != 12 and map_index != 13 and map_index != 14:
         window.blit(background,(0,0))
@@ -1149,8 +1176,10 @@ while game_runing:
     
     elif map_index == 14:
         window.blit(background_for_pc_control,(0,0))
-        
-    # дозволення на натискання клавіш
+
+# -----------------------------        
+#   Натискання різних клавіш:
+# -----------------------------
     keys = pygame.key.get_pressed()
     # клавіша паузи
     if keys[pygame.K_ESCAPE] and not menum and count_till_the_end >0:
