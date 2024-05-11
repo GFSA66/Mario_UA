@@ -248,7 +248,7 @@ choose_setings_map = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                       [0,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                       [0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                       [0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -278,6 +278,23 @@ pc_control_map = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 
+change_control_map = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                      [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
+
 about_game_map = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -295,9 +312,10 @@ about_game_map = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
                   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]
 
+
 ######################################     Створюємо список з усіма мапами:     ######################################
-#              0       1      2      3       4        5         6        7         8        9      10       11             12              13              14
-maps_list = [menu_map,rules,menu,map_list,list_map,list_list,map_map,tsil_tsil,tsil_pam, pam_pam,winner,setings_map,choose_setings_map,about_game_map,pc_control_map] # Список з усіма мапами
+#              0       1      2      3       4        5         6        7         8        9      10       11             12              13              14                15
+maps_list = [menu_map,rules,menu,map_list,list_map,list_list,map_map,tsil_tsil,tsil_pam, pam_pam,winner,setings_map,choose_setings_map,about_game_map,pc_control_map,change_control_map] # Список з усіма мапами
 
 ######################################     Створюємо батьківський класс:     ######################################
 
@@ -434,27 +452,27 @@ class Mario(Block):
 #     Рух Маріо:
 # ---------------------- 
     def update(self):
-        global map_index
+        global map_index,control_keys
         if map_index ==8:
-            if keys[pygame.K_SPACE] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробел"
+            if keys[control_keys['Стрибати']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробел"
                 self.delay = 6*self.rect.height//8
             if keys[pygame.K_UP] and self.delay == 0 and collide_events["bottom"]: # стрибок на "стрілка вверх"
                 self.delay = 6*self.rect.height//8
-            if keys[pygame.K_w] and self.delay == 0 and collide_events["bottom"]: # стрибок на "W"
+            if keys[control_keys['Стрибати_2']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "W"
                 self.delay = 6*self.rect.height//8
         elif map_index ==7:
-            if keys[pygame.K_SPACE] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробел"
+            if keys[control_keys['Стрибати']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробел"
                 self.delay = 4*self.rect.height//8
             if keys[pygame.K_UP] and self.delay == 0 and collide_events["bottom"]: # стрибок на "стрілка вверх"
                 self.delay = 4*self.rect.height//8
-            if keys[pygame.K_w] and self.delay == 0 and collide_events["bottom"]: # стрибок на "W"
+            if keys[control_keys['Стрибати_2']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "W"
                 self.delay = 4*self.rect.height//8
         else:
-            if keys[pygame.K_SPACE] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробел"
+            if keys[control_keys['Стрибати']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробел"
                 self.delay = 3*self.rect.height//8
             if keys[pygame.K_UP] and self.delay == 0 and collide_events["bottom"]: # стрибок на "стрілка вверх"
                 self.delay = 3*self.rect.height//8
-            if keys[pygame.K_w] and self.delay == 0 and collide_events["bottom"]: # стрибок на "W"
+            if keys[control_keys['Стрибати_2']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "W"
                 self.delay = 3*self.rect.height//8
         for joystick in joysticks:
             if joystick.get_button(0) and self.delay == 0 and collide_events["bottom"]: # стрибок на "А"
@@ -567,7 +585,7 @@ class Mario(Block):
                     mariopic_index = 0
                 
         # анімації на клавиши:
-        if keys[pygame.K_d] and collide_events["bottom"]:
+        if keys[control_keys['Ходити в право']] and collide_events["bottom"]:
             self.animation('go_right')
 
         elif not collide_events["bottom"] and not self.look_left:
@@ -579,7 +597,7 @@ class Mario(Block):
         elif keys[pygame.K_RIGHT] and collide_events["bottom"]:
             self.animation('go_right')  
 
-        elif keys[pygame.K_a] and collide_events["bottom"]:
+        elif keys[control_keys['Ходити в ліво']] and collide_events["bottom"]:
             self.animation('go_left')  
 
         elif keys[pygame.K_LEFT] and collide_events["bottom"]:
@@ -767,7 +785,7 @@ class Picture(Area):
 
 ######################################     Функція для зміни мап (перехід між рівнями):     ######################################
 def maps(couch):
-    global mario,lvl,blocks,lvls,backs,enemies,death_index,time,map_index,BACK,time1,coins,luckyblocks,money,about_game,pc_control,joystick_control
+    global mario,lvl,blocks,lvls,backs,enemies,death_index,time,map_index,BACK,time1,coins,luckyblocks,money,about_game,pc_control,joystick_control,change_control
 
 # -------------------------
 #  Обнулення мапи:
@@ -838,7 +856,7 @@ def maps(couch):
                     cloud = Picture("cloud.png",TILE*j,TILE*i)
                     blocks.append(cloud)
 
-                if couch != menu and couch != setings_map and couch != choose_setings_map and couch != about_game_map and couch != pc_control_map:
+                if couch != menu and couch != setings_map and couch != choose_setings_map and couch != about_game_map and couch != pc_control_map and couch != change_control_map:
                     if el == 8: # повернення на рівень "меню"
                             exit = Lable(-10,400,1,1,color = (BACK))
                             exit.set_text("МЕНЮ",50)
@@ -964,6 +982,22 @@ def maps(couch):
                         blocks.append(pc_control)
                     elif el == 10:
                         blocks.append(joystick_control)
+                    elif el == 11:
+                        blocks.append(change_control)
+
+                if couch == change_control_map:
+                    if el == 83:
+                        change = Lable(500,100,1,1,color = (BACK))
+                        change.set_text("Зміна керування:", 50)
+                        blocks.append(change)
+
+                        chg_1 = Lable(500,150,1,1,color = (BACK))
+                        chg_1.set_text("Щоб змінити керування натисніть на картинку", 30)
+                        blocks.append(chg_1)
+
+                        chg_2 = Lable(500,175,1,1,color = (BACK))
+                        chg_2.set_text("Потім натисніть на клавішу", 30)
+                        blocks.append(chg_2)
 
                 if couch == pc_control_map: # керування на комп'ютері
                     if el == 8:
@@ -1035,7 +1069,7 @@ def maps(couch):
                         ab_g_6 = Lable(500,425,1,1,color = (BACK))
                         ab_g_6.set_text("спочатку підключайте його", 40)
                         blocks.append(ab_g_6)
-                        
+    
                 if couch == menu: # Меню
                     if el == 9:
                         exit = Lable(-50,400,1,1,color = (BACK))
@@ -1066,6 +1100,7 @@ def music():
 # --------------------------------------------------------
 
 # Списки для додавання об'єктів на мапу:
+change_pictures = list()
 menu_blocks = list()
 blocks = list()
 backs = list()
@@ -1127,15 +1162,24 @@ play_game = Picture("le_button.png",676,284,74,46)
 exit_game = Picture("exit_button.png",676,330,74,46)
 setings = Picture("setings_button.png",676,376,74,46)
 mario_title=Picture("mario_title.png",550,100,800,375)
-about_game = Lable(500,200,400,25,color = (BACK))
+about_game = Lable(500,125,400,25,color = (BACK))
 about_game.set_text("Відомості про гру", 30)
-pc_control = Lable(500,300,400,25,color = (BACK))
+pc_control = Lable(500,225,400,25,color = (BACK))
 pc_control.set_text("Керування на ПК", 30)
-joystick_control = Lable(500,400,400,25,color = (BACK))
+joystick_control=Lable(500,325,400,25,color = (BACK))
 joystick_control.set_text("Керування на джойстику", 30)
-
+change_control = Lable(500,425,400,25,color = (BACK))
+change_control.set_text("Змінити керування",30)
+change_go_right = Picture('images for animation/mario_run_1.png',500,325,64,64)
+change_go_left = Picture('images for animation/mario_run_left_3.png',500,425,64,64)
+change_jump = Picture('mario_jump.png',500,525,64,64)
+count_change_go_right = 15
+count_change_go_left = 15
+count_change_jump =  15
 # Словник перевірки руху в одну із сторін:
 collides = {-1: "left", 1: "right"}
+
+control_keys = {'Стрибати':pygame.K_SPACE,'Стрибати_2':pygame.K_w,'Ходити в ліво':pygame.K_a,'Ходити в право':pygame.K_d,'Вмерти':pygame.K_t}
 
 # Додаємо елементи меню до певного списку:
 menu_blocks.append(mario_title)
@@ -1143,8 +1187,12 @@ menu_blocks.append(play_game)
 menu_blocks.append(exit_game)
 menu_blocks.append(setings)
 
+change_pictures.append(change_go_right)
+change_pictures.append(change_go_left)
+change_pictures.append(change_jump)
+
 ######################################     Запускаємо функції:     ######################################
-music()
+#music()
 maps(maps_list[map_index])
 ######################################     Запускаємо ігровий цикл:     ######################################
 while game_runing:
@@ -1153,7 +1201,7 @@ while game_runing:
 #   Заливвання фону:
 # ---------------------
     window.fill(BACK)
-    if map_index != 0 and map_index != 8 and map_index != 9 and map_index != 7 and map_index != 10 and map_index != 11 and map_index != 12 and map_index != 13 and map_index != 14:
+    if map_index != 0 and map_index != 8 and map_index != 9 and map_index != 7 and map_index != 10 and map_index != 11 and map_index != 12 and map_index != 13 and map_index != 14 and map_index != 15:
         window.blit(background,(0,0))
     
     elif map_index == 11:
@@ -1214,6 +1262,7 @@ while game_runing:
                 map_index =12
                 step = 0
                 menum_react = False
+                print(count_change_jump)
                 maps(maps_list[map_index])
             
         # Зміна мапи налаштування:
@@ -1239,6 +1288,37 @@ while game_runing:
                     menum_react = False
                     maps(maps_list[map_index])
 
+                elif change_control.collidepoint(x,y) and not menum:
+                    mario.points +=1
+                    map_index =15
+                    step = 0
+                    menum_react = False
+                    print(count_change_jump)
+                    maps(maps_list[map_index])
+
+            if map_index == 15 and change_go_right.collidepoint(x,y):
+                mario.points +=1
+                map_index =re_game
+                step = 0
+                menum_react = False
+                maps(maps_list[map_index])
+
+            if map_index == 15 and change_go_left.collidepoint(x,y):
+                mario.points +=1
+                map_index =re_game
+                step = 0
+                menum_react = False
+                maps(maps_list[map_index])
+
+            if map_index == 15 and change_jump.collidepoint(x,y) and event.type == pygame.KEYUP:
+                #if event.type == pygame.KEYUP:
+                        print(count_change_jump)
+                        count_change_jump -=1
+                        if not count_change_jump <=0:
+                            control_keys['Стрибати'] = event.key
+                            count_change_jump = 15
+                            print(pygame.key.name(control_keys['Стрибати']))
+            
     # Підключення джойстика:
         try:
             if event.type == pygame.JOYDEVICEADDED:
@@ -1267,7 +1347,9 @@ while game_runing:
 
             for menu_el in menu_blocks:
                 menu_el.update()
-        
+    if map_index == 15:
+        for el in change_pictures:
+            el.update()
         if  Joystick_add:# повернення до гри на кнопну джойстика
             for joystick in joysticks:
                 if joystick.get_button(9):
@@ -1288,29 +1370,29 @@ while game_runing:
 #     Рух:
 # -------------------
 
-    if keys[pygame.K_a] and not collide_events['left'] and not keys[pygame.K_LEFT]: 
+    if keys[control_keys['Ходити в ліво']] and not collide_events['left'] and not keys[pygame.K_LEFT]: 
         for enemy in enemies:
             enemy.rect.x +=4
         step += 4
 
-    if keys[pygame.K_LEFT] and not collide_events['left'] and not keys[pygame.K_a]: 
+    if keys[pygame.K_LEFT] and not collide_events['left'] and not keys[control_keys['Ходити в ліво']]: 
         for enemy in enemies: 
             enemy.rect.x +=4
         step += 4
 
-    if keys[pygame.K_d] and not collide_events['right'] and not keys[pygame.K_RIGHT]:
+    if keys[control_keys['Ходити в право']] and not collide_events['right'] and not keys[pygame.K_RIGHT]:
         for enemy in enemies:
             enemy.rect.x -=4
         step -= 4
 
     
-    if keys[pygame.K_RIGHT] and not collide_events['right'] and not keys[pygame.K_d]:
+    if keys[pygame.K_RIGHT] and not collide_events['right'] and not keys[control_keys['Ходити в право']]:
         for enemy in enemies:
             enemy.rect.x -=4
         step -= 4
 
     # смерть Марио на клавишу "Т"
-    if keys[pygame.K_t] and step !=0:
+    if keys[control_keys['Вмерти']] and step !=0:
         mario.health = 0 
 
 # --------------------------------
@@ -1363,7 +1445,7 @@ while game_runing:
         back.draw()
 
     # промальовка Маріо
-    if map_index !=0 and map_index != 11 and map_index != 12  and map_index != 13 and map_index != 14:        
+    if map_index !=0 and map_index != 11 and map_index != 12  and map_index != 13 and map_index != 14 and map_index != 15:        
         mario.draw()
     mario.update()
     
@@ -1373,7 +1455,7 @@ while game_runing:
         enemy.update()
 
     # падіння за мапу
-    if mario.rect.y >=700 and map_index != 0 and map_index != 11 and map_index != 12  and map_index != 13 and map_index != 14: 
+    if mario.rect.y >=700 and map_index != 0 and map_index != 11 and map_index != 12  and map_index != 13 and map_index != 14 and map_index != 15: 
         mario.health = 0
 # -----------------------------------------------
 #   Призначення мап для повернення з паузи:
@@ -1448,7 +1530,7 @@ while game_runing:
 # ----------------------------
 #   Промальовка інтерфейсу:
 # ----------------------------
-    if map_index != 0 and map_index != 11 and map_index != 12  and map_index != 13 and map_index != 14:
+    if map_index != 0 and map_index != 11 and map_index != 12  and map_index != 13 and map_index != 14 and map_index != 15:
         point.set_text("Очки: " + str(mario.points),40) # очки
 
         if timer == FPS and map_index !=10:
@@ -1464,7 +1546,7 @@ while game_runing:
         point.draw()
         timer = (timer % FPS) +1
 
-    if map_index != 0 and map_index != 7 and map_index != 11 and map_index != 12  and map_index != 13 and map_index != 14:
+    if map_index != 0 and map_index != 7 and map_index != 11 and map_index != 12  and map_index != 13 and map_index != 14 and map_index != 15:
         timel.draw()
         
     if map_index ==7:
