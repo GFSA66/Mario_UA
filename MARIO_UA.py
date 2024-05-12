@@ -748,7 +748,7 @@ class Area():
 class Lable(Area):
     def set_text(self, text, size):
         font1 = pygame.font.Font(None,size) # шрифт, його розмір
-        if map_index == 11 or map_index == 13 or map_index == 14:
+        if map_index == 11 or map_index == 13 or map_index == 14 or map_index == 15:
             self.text = font1.render(text,True,(60,243,28))
         else:
            self.text = font1.render(text,True,(70,70,70))
@@ -1215,6 +1215,9 @@ while game_runing:
     
     elif map_index == 14:
         window.blit(background_for_pc_control,(0,0))
+    
+    elif map_index == 15:
+        window.blit(pause_background,(0,0))
 
 # -----------------------------        
 #   Натискання різних клавіш:
