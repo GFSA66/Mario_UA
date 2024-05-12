@@ -3,7 +3,7 @@
 from numpy import sign # округлення чисел (використовується для джойстика)
 import pygame # використовується для створенняя ігор
 
-######################################     Створюємо константы:     ######################################
+######################################     Створюємо константи:     ######################################
 FPS = 60
 BACK = (175,238,238)
 SIZE = (1500,640)
@@ -11,7 +11,7 @@ TILE =32
 ######################################     Підключаємо init():     ######################################
 pygame.init()
 pygame.joystick.init()
-######################################      Створюєм вікно:      ######################################
+######################################      Створюємо вікно:      ######################################
 window =pygame.display.set_mode(SIZE)
 
 clock = pygame.time.Clock()
@@ -317,11 +317,11 @@ about_game_map = [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 #              0       1      2      3       4        5         6        7         8        9      10       11             12              13              14                15
 maps_list = [menu_map,rules,menu,map_list,list_map,list_list,map_map,tsil_tsil,tsil_pam, pam_pam,winner,setings_map,choose_setings_map,about_game_map,pc_control_map,change_control_map] # Список з усіма мапами
 
-######################################     Створюємо батьківський класс:     ######################################
+######################################     Створюємо батьківський клас:     ######################################
 
-class Block():# класс блок
+class Block():# клас блок
 # ---------------------------
-#  Все що приймає класс:
+#  Все що приймає клас:
 # ---------------------------
 #         Може повторюватися далі у коді
 
@@ -332,10 +332,10 @@ class Block():# класс блок
         self.health = health # здоров'я
         self.color = color # колір
         self.counter = counter # лічильник для анімацій
-        self.power = power # сила наносимого урона (спочатку 0)
+        self.power = power # сила нанесиного урона (спочатку 0)
         self.name = name # унікальне ім'я блоку
 
-    def update(self):# рухається на мапа, а Маріо
+    def update(self):# рухається не Маріо, а мапа
         self.rect.x = self.x + step 
 
 # -------------
@@ -383,7 +383,7 @@ class Block():# класс блок
             self.image = luckyblockpic[luckyblockpic_index]
         window.blit(self.image, (self.rect.x,self.rect.y))
 
-######################################     Створюємо класс спадкоємець від батьківського классу:     ######################################
+######################################     Створюємо клас спадкоємець від батьківського класу:     ######################################
 class Mario(Block):
     
     def __init__(self,filename,x,y,width=TILE,height = TILE,color = (0,0,0),health = 4,points=0,counter = 0,look_left = False) ->None:
@@ -392,7 +392,7 @@ class Mario(Block):
         self.delay = 0 # для стрибку
         self.rect.y -=64
         self.health = health
-        self.points = points # очки
+        self.points = points # бали
         self.counter = counter
         self.look_left = look_left # перевірка повернення Маріо в ліву сторону
 
@@ -454,21 +454,21 @@ class Mario(Block):
     def update(self):
         global map_index,control_keys
         if map_index ==8:
-            if keys[control_keys['Стрибати']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробел"
+            if keys[control_keys['Стрибати']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробіл"
                 self.delay = 6*self.rect.height//8
             if keys[pygame.K_UP] and self.delay == 0 and collide_events["bottom"]: # стрибок на "стрілка вверх"
                 self.delay = 6*self.rect.height//8
             if keys[control_keys['Стрибати_2']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "W"
                 self.delay = 6*self.rect.height//8
         elif map_index ==7:
-            if keys[control_keys['Стрибати']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробел"
+            if keys[control_keys['Стрибати']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробіл"
                 self.delay = 4*self.rect.height//8
             if keys[pygame.K_UP] and self.delay == 0 and collide_events["bottom"]: # стрибок на "стрілка вверх"
                 self.delay = 4*self.rect.height//8
             if keys[control_keys['Стрибати_2']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "W"
                 self.delay = 4*self.rect.height//8
         else:
-            if keys[control_keys['Стрибати']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробел"
+            if keys[control_keys['Стрибати']] and self.delay == 0 and collide_events["bottom"]: # стрибок на "пробіл"
                 self.delay = 3*self.rect.height//8
             if keys[pygame.K_UP] and self.delay == 0 and collide_events["bottom"]: # стрибок на "стрілка вверх"
                 self.delay = 3*self.rect.height//8
@@ -584,7 +584,7 @@ class Mario(Block):
                 else:
                     mariopic_index = 0
                 
-        # анімації на клавиши:
+        # анімації на клавіші:
         if keys[control_keys['Ходити в право']] and collide_events["bottom"]:
             self.animation('go_right')
 
@@ -615,8 +615,8 @@ class Mario(Block):
         self.image =mariopic[mariopic_index] 
         window.blit(self.image, (self.rect.x,self.rect.y))
 
-######################################     Створюємо класс спадкоємець від іншого класса спадкоємець:     ######################################
-class Enemy(Mario):# класс Ворог
+######################################     Створюємо клас спадкоємець від іншого класа спадкоємець:     ######################################
+class Enemy(Mario):# клас Ворог
     def __init__(self,filename,x,y,width=TILE,height = TILE,color = (0,0,0),power = 100,turn_side = False) ->None:
         self.image = pygame.image.load(filename)
         super().__init__(filename,x=x,y=y,width=width,height=height,color= None)
@@ -666,7 +666,7 @@ class Enemy(Mario):# класс Ворог
         collide_events_enemy = self.collide_events_enemy()
         if collide_events_enemy['left_mario'] or collide_events_enemy['right_mario']: # нанесення урона Маріо
             self.hit(mario)
-        if collide_events_enemy['top_mario']: # знищення врага
+        if collide_events_enemy['top_mario']: # знищення ворога
             enemies.remove(self)
             mario.points+=1
             if mario.health != 4:
@@ -717,19 +717,19 @@ class Enemy(Mario):# класс Ворог
             
         self.image =mashroompic[mashroompic_index]
         window.blit(self.image, (self.rect.x,self.rect.y))
-######################################     Класс для створення прямокутника:     ######################################
+######################################     Клас для створення прямокутника:     ######################################
 class Area():
     def __init__(self, x, y, width, height, color):
         self.rect = pygame.Rect(x, y, width, height)
         self.fill_color = color
         self.x = x
 # --------------------
-#  Зазначення коліру:
+#  Зазначення кольору:
 # --------------------
     def set_color(self, new_color):
         self.fill_color = new_color
 # -------------------
-# Заливання коліром:
+# Заливання кольором:
 # -------------------
     def fill(self):
         pygame.draw.rect(window,self.fill_color,self.rect)
@@ -762,7 +762,7 @@ class Lable(Area):
         self.draw()
         self.rect.x = self.x + step 
 
-######################################     Прямокутник з картинкою (просто картинка котру можно обійти):     ######################################
+######################################     Прямокутник з картинкою (просто картинка котру можна обійти):     ######################################
 class Picture(Area):
     def  __init__(self,filename,x=0,y=0,width = 10, height = 10,power=0):
         super().__init__(x=x,y=y,width=width,height=height,color= None)
@@ -806,7 +806,7 @@ def maps(couch):
 
     for i,row in enumerate(couch):
             for j, el in enumerate(row):
-                # сотворенняе елементів списка на будьяких мапах
+                # сотворення елементів списка на будь-яких мапах
                 if el == 17:
                     lb = Block("luckyblock_animation/luckyblock.png",TILE*j, TILE*i,color = (0,255,255),name= "luckyblock")   
                     luckyblocks.append(lb)      
@@ -853,7 +853,7 @@ def maps(couch):
                         backs.append(back)
                         blocks.append(back)
 
-                if el == 6 and couch != menu and couch != winner and couch != menu_map: # облочко
+                if el == 6 and couch != menu and couch != winner and couch != menu_map: # хмаринка
                     cloud = Picture("cloud.png",TILE*j,TILE*i)
                     blocks.append(cloud)
 
@@ -1007,36 +1007,36 @@ def maps(couch):
                         blocks.append(ab_g_0)
 
                         ab_g_1 = Lable(500,200,1,1,color = (BACK))
-                        ab_g_1.set_text('''Стрибати:
-                (стрілка вгору, W, пробіл)''', 30)
+                        ab_g_1.set_text(f'''Стрибати:
+                (стрілка вгору, {pygame.key.name(control_keys['Стрибати_2'])}, {pygame.key.name(control_keys['Стрибати'])})''', 30)
                         blocks.append(ab_g_1)
 
                         ab_g_2 = Lable(500,225,1,1,color = (BACK))
-                        ab_g_2.set_text('''Ходити:
-                (A , стрілка вліво) (D , стрілка вправо)''', 30)
+                        ab_g_2.set_text(f'''Ходити:
+                ({pygame.key.name(control_keys['Ходити в ліво'])} , стрілка вліво) ({pygame.key.name(control_keys['Ходити в право'])} , стрілка вправо)''', 30)
                         blocks.append(ab_g_2)
 
                         ab_g_3 = Lable(500,250,1,1,color = (BACK))
-                        ab_g_3.set_text('''Вмерти:
-                (англ."T")''', 30)
+                        ab_g_3.set_text(f'''Вмерти:
+                ({pygame.key.name(control_keys['Вмерти'])})''', 30)
                         blocks.append(ab_g_3)
 
                         ab_g_4 = Lable(500,275,1,1,color = (BACK))
-                        ab_g_4.set_text('''ESCAPE:
+                        ab_g_4.set_text(f'''ESCAPE:
                 пауза(меню)''', 30)
                         blocks.append(ab_g_4)
 
                         ab_g_5 = Lable(500,300,1,1,color = (BACK))
-                        ab_g_5.set_text('''якщо в меню(на паузі):''', 40)
+                        ab_g_5.set_text(f'''якщо в меню(на паузі):''', 40)
                         blocks.append(ab_g_5)
 
                         ab_g_6 = Lable(500,350,1,1,color = (BACK))
-                        ab_g_6.set_text('''ESCAPE:
+                        ab_g_6.set_text(f'''ESCAPE:
                 вийти з гри''', 30)
                         blocks.append(ab_g_6)
 
                         ab_g_7 = Lable(500,375,1,1,color = (BACK))
-                        ab_g_7.set_text('''ENTER:
+                        ab_g_7.set_text(f'''ENTER:
                 продовжити гру''', 30)
                         blocks.append(ab_g_7)
 
@@ -1094,10 +1094,10 @@ def music():
     pygame.mixer.music.set_volume(0.50)  
     pygame.mixer.music.play(-1, 0.0)
 
-######################################     Створюємо все що нам потрібно:     ######################################
+######################################     Створюємо все, що нам потрібно:     ######################################
 
 #---------------------------------------------------------
-#   (списки, змінні, об'єкти классів, словник)
+#   (списки, змінні, об'єкти класів, словник)
 # --------------------------------------------------------
 
 # Списки для додавання об'єктів на мапу:
@@ -1126,7 +1126,7 @@ timew = 30
 timew1 = 5
 # Монети:
 coins = 0
-# Рахувати для вихіду з гри
+# Рахувати для виходу з гри
 count_till_the_end = 15
 # Запам'ятовування останньої мапи
 re_game = 1
@@ -1163,7 +1163,7 @@ collides = {-1: "left", 1: "right"}
 # Словник зміни керування:
 control_keys = {'Стрибати':pygame.K_SPACE,'Стрибати_2':pygame.K_w,'Ходити в ліво':pygame.K_a,'Ходити в право':pygame.K_d,'Вмерти':pygame.K_t}
 
-# Об'єкти різних классів
+# Об'єкти різних класів
 point = Lable(1300,75,1,1,(12,87,90))
 point.set_text("Очки: 0",40)
 timel = Lable(500,75,1,1,(12,87,90))
@@ -1195,7 +1195,6 @@ change_go_right_lable = Lable(600,325,0,0,(12,87,90))
 change_go_left_lable = Lable(600,375,0,0,(12,87,90))
 change_die_lable = Lable(600,425,1,1,(12,87,90))
 
-
 # Додаємо елементи меню до певного списку:
 menu_blocks.append(mario_title)
 menu_blocks.append(play_game)
@@ -1221,7 +1220,7 @@ maps(maps_list[map_index])
 while game_runing:
 
 # ---------------------
-#   Заливвання фону:
+#   Заливання фону:
 # ---------------------
     window.fill(BACK)
     if map_index != 0 and map_index != 8 and map_index != 9 and map_index != 7 and map_index != 10 and map_index != 11 and map_index != 12 and map_index != 13 and map_index != 14 and map_index != 15:
@@ -1484,7 +1483,7 @@ while game_runing:
             block.draw()    
         block.update()
 
-    # промальовка блоків переходу на новый рівень
+    # промальовка блоків переходу на новий рівень
     for lvl in lvls:
         lvl.update()
         lvl.draw()
@@ -1534,7 +1533,7 @@ while game_runing:
 # -----------------------------
 #   Промальовка здоров'я Маріо:
 # -----------------------------
-    if mario.health >= 4:    # рисовка хп                
+    if mario.health >= 4:    # промальовка хп                
         hp = Picture("health4.png",100,75,1,1)
     elif mario.health == 3:
         hp = Picture("health3.png",100,75,1,1)
@@ -1559,7 +1558,7 @@ while game_runing:
             step = 0
             map_index +=1
             maps(maps_list[map_index])
-    # монетки котрі дають + к очкам
+    # монетки котрі дають + до балів
     if collide_events["lb"] :
         coin = Picture("coin.png",mario.rect.x- step,mario.rect.y-64,16,16)
         money.append(coin)
@@ -1581,7 +1580,7 @@ while game_runing:
 #   Промальовка інтерфейсу:
 # ----------------------------
     if map_index != 0 and map_index != 11 and map_index != 12  and map_index != 13 and map_index != 14 and map_index != 15:
-        point.set_text("Очки: " + str(mario.points),40) # очки
+        point.set_text("Очки: " + str(mario.points),40) # бали
 
         if timer == FPS and map_index !=10:
             time += 1
@@ -1638,11 +1637,11 @@ while game_runing:
 # Використання функцій та циклів ✅
 
 # ----------------------
-#   Робота программи:
+#   Робота програми:
 # ----------------------
 
 # Наявність меню ✅
-# Налаштування гри (В налаштуваннях повинно бути описано основні відомості про гру) ✅
+# Налаштування гри ✅
 # Наявність паузи ✅
 # Відповідність оригінальній грі ✅
 
@@ -1663,7 +1662,7 @@ while game_runing:
 # Перезапуск рівня з меню паузи ✅
 # Збереження прогресу ✅ (при переході на новий рівень ви збереігаетесь та після смерті ви не попадаете на 1-й рівень)
 # Бустери персонажу. Усилюючі предмети (Реалізувати додаткові предмети, які допоможуть подолати рівень або набрати побільше балів.) ✅ 
-#(Монетки які дають + к очкам без яких не можна пройти рівень)
+#(Монетки які дають +до балів без яких не можна пройти рівень)
 # Наявність автоматично запрограмованих ворогів (ботів) ✅
 # Анімація головного героя ✅
 # Анімація інших елементів гри ✅ (Анімація ворогів)
