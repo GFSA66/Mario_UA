@@ -1165,7 +1165,7 @@ control_keys = {'Стрибати':pygame.K_SPACE,'Стрибати_2':pygame.K_
 
 # Об'єкти різних класів
 point = Lable(1300,75,1,1,(12,87,90))
-point.set_text("Очки: 0",40)
+point.set_text("Балів: 0",40)
 timel = Lable(500,75,1,1,(12,87,90))
 timel.set_text("Хвилин:0"+" Секунд:0",40)
 timewl = Lable(500,75,1,1,(12,87,90))
@@ -1580,7 +1580,7 @@ while game_runing:
 #   Промальовка інтерфейсу:
 # ----------------------------
     if map_index != 0 and map_index != 11 and map_index != 12  and map_index != 13 and map_index != 14 and map_index != 15:
-        point.set_text("Очки: " + str(mario.points),40) # бали
+        point.set_text("Балів: " + str(mario.points),40) # бали
 
         if timer == FPS and map_index !=10:
             time += 1
