@@ -1299,22 +1299,26 @@ while game_runing:
                     print(count_change_jump)
                     maps(maps_list[map_index])
 
-            if map_index == 15 and change_go_right.collidepoint(x,y):
-                mario.points +=1
-                map_index =re_game
-                step = 0
-                menum_react = False
-                maps(maps_list[map_index])
+        if map_index == 15 and change_go_right.collidepoint(x,y):
+            if event.type == pygame.KEYUP:
+                        print(count_change_go_right)
+                        count_change_go_right -=1
+                        if not count_change_go_right <=0:
+                            control_keys['Ходити в право'] = event.key
+                            count_change_go_right = 15
+                            print(pygame.key.name(control_keys['Ходити в право']))
 
-            if map_index == 15 and change_go_left.collidepoint(x,y):
-                mario.points +=1
-                map_index =re_game
-                step = 0
-                menum_react = False
-                maps(maps_list[map_index])
+        if map_index == 15 and change_go_left.collidepoint(x,y):
+            if event.type == pygame.KEYUP:
+                        print(count_change_go_left)
+                        count_change_go_left -=1
+                        if not count_change_go_left <=0:
+                            control_keys['Ходити в ліво'] = event.key
+                            count_change_go_left = 15
+                            print(pygame.key.name(control_keys['Ходити в ліво']))
 
-            if map_index == 15 and change_jump.collidepoint(x,y) and event.type == pygame.KEYUP:
-                #if event.type == pygame.KEYUP:
+        if map_index == 15 and change_jump.collidepoint(x,y): # and change_jump.collidepoint(x,y) and event.type == pygame.KEYUP
+            if event.type == pygame.KEYUP:
                         print(count_change_jump)
                         count_change_jump -=1
                         if not count_change_jump <=0:
