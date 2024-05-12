@@ -759,6 +759,7 @@ class Lable(Area):
        self.fill()
        window.blit(self.text,(self.rect.x + shift_x, self.rect.y + shift_y))
     def update(self):
+        self.draw()
         self.rect.x = self.x + step 
 
 ######################################     Прямокутник з картинкою (просто картинка котру можно обійти):     ######################################
@@ -1149,6 +1150,19 @@ background_for_pc_control=pygame.transform.scale(pygame.image.load("background_f
 background_about_the_game=pygame.transform.scale(pygame.image.load("background_about_the_game.jpg"),SIZE)
 pause_background=pygame.transform.scale(pygame.image.load("pause_background.jpg"),SIZE)
 
+# Зміна керування:
+count_change_go_right = 15
+count_change_go_left = 15
+count_change_jump_2 =  15
+count_change_jump =  15
+count_change_die =  15
+
+# Словник перевірки руху в одну із сторін:
+collides = {-1: "left", 1: "right"}
+
+# Словник зміни керування:
+control_keys = {'Стрибати':pygame.K_SPACE,'Стрибати_2':pygame.K_w,'Ходити в ліво':pygame.K_a,'Ходити в право':pygame.K_d,'Вмерти':pygame.K_t}
+
 # Об'єкти різних классів
 point = Lable(1300,75,1,1,(12,87,90))
 point.set_text("Очки: 0",40)
@@ -1170,16 +1184,17 @@ joystick_control=Lable(500,325,400,25,color = (BACK))
 joystick_control.set_text("Керування на джойстику", 30)
 change_control = Lable(500,425,400,25,color = (BACK))
 change_control.set_text("Змінити керування",30)
+change_jump = Picture('mario_jump.png',500,225,64,64)
+change_jump_2 = Picture('mario_jump_2.png',500,275,64,64)
 change_go_right = Picture('images for animation/mario_run_1.png',500,325,64,64)
-change_go_left = Picture('images for animation/mario_run_left_3.png',500,425,64,64)
-change_jump = Picture('mario_jump.png',500,525,64,64)
-count_change_go_right = 15
-count_change_go_left = 15
-count_change_jump =  15
-# Словник перевірки руху в одну із сторін:
-collides = {-1: "left", 1: "right"}
+change_go_left = Picture('images for animation/mario_run_left_3.png',500,375,64,64)
+change_die = Picture('images for animation/mario_die.png',500,425,64,64)
+change_jump_lable = Lable(600,225,0,0,(12,87,90))
+change_jump_2_lable = Lable(600,275,0,0,(12,87,90))
+change_go_right_lable = Lable(600,325,0,0,(12,87,90))
+change_go_left_lable = Lable(600,375,0,0,(12,87,90))
+change_die_lable = Lable(600,425,1,1,(12,87,90))
 
-control_keys = {'Стрибати':pygame.K_SPACE,'Стрибати_2':pygame.K_w,'Ходити в ліво':pygame.K_a,'Ходити в право':pygame.K_d,'Вмерти':pygame.K_t}
 
 # Додаємо елементи меню до певного списку:
 menu_blocks.append(mario_title)
@@ -1189,10 +1204,18 @@ menu_blocks.append(setings)
 
 change_pictures.append(change_go_right)
 change_pictures.append(change_go_left)
+change_pictures.append(change_jump_2)
 change_pictures.append(change_jump)
+change_pictures.append(change_die)
+
+change_pictures.append(change_go_right_lable)
+change_pictures.append(change_go_left_lable)
+change_pictures.append(change_jump_2_lable)
+change_pictures.append(change_jump_lable)
+change_pictures.append(change_die_lable)
 
 ######################################     Запускаємо функції:     ######################################
-#music()
+music()
 maps(maps_list[map_index])
 ######################################     Запускаємо ігровий цикл:     ######################################
 while game_runing:
@@ -1245,9 +1268,10 @@ while game_runing:
 #      Події:
 #   -------------------
     for event in pygame.event.get():
-        # повернення до гри при натисканні на кнопку
+    # Натискання на різні кнопки
         if event.type == pygame.MOUSEBUTTONDOWN and event.button ==1:
             x,y = event.pos
+        # повернення до гри при натисканні на кнопку
             if menum_react and play_game.collidepoint(x,y):
                 mario.points +=1
                 map_index =re_game
@@ -1265,7 +1289,6 @@ while game_runing:
                 map_index =12
                 step = 0
                 menum_react = False
-                print(count_change_jump)
                 maps(maps_list[map_index])
             
         # Зміна мапи налаштування:
@@ -1296,35 +1319,43 @@ while game_runing:
                     map_index =15
                     step = 0
                     menum_react = False
-                    print(count_change_jump)
                     maps(maps_list[map_index])
-
+        
+    # Зміна керування:
         if map_index == 15 and change_go_right.collidepoint(x,y):
             if event.type == pygame.KEYUP:
-                        print(count_change_go_right)
                         count_change_go_right -=1
                         if not count_change_go_right <=0:
                             control_keys['Ходити в право'] = event.key
                             count_change_go_right = 15
-                            print(pygame.key.name(control_keys['Ходити в право']))
 
         if map_index == 15 and change_go_left.collidepoint(x,y):
             if event.type == pygame.KEYUP:
-                        print(count_change_go_left)
                         count_change_go_left -=1
                         if not count_change_go_left <=0:
                             control_keys['Ходити в ліво'] = event.key
                             count_change_go_left = 15
-                            print(pygame.key.name(control_keys['Ходити в ліво']))
 
-        if map_index == 15 and change_jump.collidepoint(x,y): # and change_jump.collidepoint(x,y) and event.type == pygame.KEYUP
+        if map_index == 15 and change_jump.collidepoint(x,y):
             if event.type == pygame.KEYUP:
-                        print(count_change_jump)
                         count_change_jump -=1
                         if not count_change_jump <=0:
                             control_keys['Стрибати'] = event.key
                             count_change_jump = 15
-                            print(pygame.key.name(control_keys['Стрибати']))
+
+        if map_index == 15 and change_jump_2.collidepoint(x,y):
+            if event.type == pygame.KEYUP:
+                        count_change_jump_2 -=1
+                        if not count_change_jump <=0:
+                            control_keys['Стрибати_2'] = event.key
+                            count_change_jump_2 = 15
+        
+        if map_index == 15 and change_die.collidepoint(x,y):
+            if event.type == pygame.KEYUP:
+                        count_change_die -=1
+                        if not count_change_jump <=0:
+                            control_keys['Вмерти'] = event.key
+                            count_change_die = 15
             
     # Підключення джойстика:
         try:
@@ -1354,9 +1385,7 @@ while game_runing:
 
             for menu_el in menu_blocks:
                 menu_el.update()
-    if map_index == 15:
-        for el in change_pictures:
-            el.update()
+
         if  Joystick_add:# повернення до гри на кнопну джойстика
             for joystick in joysticks:
                 if joystick.get_button(9):
@@ -1366,12 +1395,26 @@ while game_runing:
                     menum_react = False
                     maps(maps_list[map_index])
 
+    if map_index == 15:
+        for el in change_pictures:
+            el.update()
+
     # вихід з гри
     if count_till_the_end == 0:
         game_runing = False
 
     # дотик Маріо
     collide_events = mario.collide_events()
+
+# ------------------------------------------
+#  Показ кавіш відповідаючих певній дії:
+# ------------------------------------------
+
+    change_jump_lable.set_text(f"{pygame.key.name(control_keys['Стрибати'])}",40)
+    change_jump_2_lable.set_text(f"{pygame.key.name(control_keys['Стрибати_2'])}",40)
+    change_go_right_lable.set_text(f"{pygame.key.name(control_keys['Ходити в право'])}",40)
+    change_go_left_lable.set_text(f"{pygame.key.name(control_keys['Ходити в ліво'])}",40)
+    change_die_lable.set_text(f"{pygame.key.name(control_keys['Вмерти'])}",40)
 
 # -------------------
 #     Рух:
@@ -1616,7 +1659,7 @@ while game_runing:
 #   Додаткові бали:
 # ----------------------
 
-# Зміна керування персонажем в налаштуваннях ❌
+# Зміна керування персонажем в налаштуваннях ✅
 # Перезапуск рівня з меню паузи ✅
 # Збереження прогресу ✅ (при переході на новий рівень ви збереігаетесь та після смерті ви не попадаете на 1-й рівень)
 # Бустери персонажу. Усилюючі предмети (Реалізувати додаткові предмети, які допоможуть подолати рівень або набрати побільше балів.) ✅ 
