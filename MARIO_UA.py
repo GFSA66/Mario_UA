@@ -360,11 +360,11 @@ class Block():# клас блок
 # ---------------------
 
     def damage(self,value):
-        global game_runing
+        global game_running
         self.health -=value
         if self.health <= 0:
             self.health = 0
-            game_runing = False
+            game_running = False
 
 # ----------------------
 #   Нанесення урону:
@@ -436,7 +436,7 @@ class Mario(Block):
 # ---------------------------
 
     def damage(self,value):
-        global game_runing
+        global game_running
         self.health -=value
         if self.health <= 0:
             self.health = 0
@@ -1137,7 +1137,7 @@ death_index = 0
 # Перехід на паузу(меню):
 menum_react = True
 # Змінна для запуску гри:
-game_runing = True
+game_running = True
 # Змінна задля руху мапи:
 step = 0
 # Перелік монет:
@@ -1217,7 +1217,7 @@ change_pictures.append(change_die_lable)
 music()
 maps(maps_list[map_index])
 ######################################     Запускаємо ігровий цикл:     ######################################
-while game_runing:
+while game_running:
 
 # ---------------------
 #   Заливання фону:
@@ -1280,7 +1280,7 @@ while game_runing:
 
         # вихід з гри при натисканні на кнопку
             if menum_react and exit_game.collidepoint(x,y):
-                game_runing = False
+                game_running = False
 
         # налаштування
             if menum_react and setings.collidepoint(x,y):
@@ -1367,7 +1367,7 @@ while game_runing:
 
         # вихід з гри (інакше доведеться закривати через диспетчер завдань)
         if event.type == pygame.QUIT:
-            game_runing = False
+            game_running = False
 
     # Пауза:
     if map_index == 0:
@@ -1400,7 +1400,7 @@ while game_runing:
 
     # вихід з гри
     if count_till_the_end == 0:
-        game_runing = False
+        game_running = False
 
     # дотик Маріо
     collide_events = mario.collide_events()
